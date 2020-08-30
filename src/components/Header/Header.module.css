@@ -1,0 +1,27 @@
+.header
+{
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,0.5438550420168067) 0%, rgba(100,192,150,0.9500175070028011) 56%);
+    min-height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+}
+.logo
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    display: block;
+    padding: 0;
+    margin: 0 20px;
+}
+.title
+{
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}

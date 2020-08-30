@@ -36,3 +36,132 @@
     transform: rotate(360deg);
   }
 }
+*
+{
+  margin: 0;
+  padding: 0;
+  caret-color: #299406;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+
+}
+main {
+  margin: 0 auto;
+  padding: 0;
+  min-height: 95vh;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+h1
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 28px;
+  line-height: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0a0a0a;
+  margin: 35px auto 0 auto;
+}
+
+h2
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #0a0a0a;
+  margin: 35px auto 0 auto;
+}
+a {
+  line-height: 22px;
+  font-size: 20px;
+  margin: 0 10px;
+}
+label {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #32c601;
+  display: block;
+  margin-bottom: 5px;
+}
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #0a0a0a;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
+  color: #0a0a0a;
+  margin-bottom: 40px;
+  padding-bottom: 4px;
+  width: 100%;
+}
+button {
+  text-decoration: none;
+  color: white;
+  background-color: rgba(15, 104, 130, 0.52);
+  display: block;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+button:hover
+{
+  box-shadow: -1px -1px 13px 0 rgba(2,153,65,1);
+}
+p{
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #0a0a0a;
+  position: relative;
+}
+a{
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  color: #0a0a0a;
+  position: relative;
+}
+form
+{
+  max-width: 20%;
+}
+
+.main-wrapper
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0 auto;
+}
+.content
+{
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,0.5438550420168067) 0%, rgba(100,192,150,0.9500175070028011) 56%);
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 40%;
+}

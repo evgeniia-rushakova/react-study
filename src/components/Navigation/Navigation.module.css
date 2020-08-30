@@ -1,0 +1,26 @@
+ul
+{
+    list-style-type: none;
+
+}
+.link
+{
+    color: whitesmoke;
+    text-decoration: none;
+}
+nav
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,0.5438550420168067) 0%, rgba(100,192,150,0.9500175070028011) 56%);
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    min-height: 50vh;
+}
+.current
+{
+    color: #c0cb56;
+}

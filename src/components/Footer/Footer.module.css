@@ -1,0 +1,16 @@
+
+.footer
+{
+    min-height: 50px;
+    position: relative;
+    top: 50vh;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,0.5438550420168067) 0%, rgba(100,192,150,0.9500175070028011) 56%);
+    margin-top:50px;
+    border-radius: 5px;
+}
+.copyright
+{
+    color: whitesmoke;
+    text-align: center;
+}
