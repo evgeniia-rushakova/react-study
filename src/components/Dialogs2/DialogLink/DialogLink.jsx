@@ -6,8 +6,8 @@ import Message from "../Message/Message";
 const DialogLink = (props) => {
 
     return <div>
-        <div className={style.dialog}><NavLink to={"/messages/" + props.idName}
-                                               activeClassName={style.current}>{props.name}</NavLink>
+        <div className={style.dialog}><NavLink to={"/messages2/" + props.idName}
+                                               activeClassName={style.current}>{props.name} id={props.idName}</NavLink>
         </div>
     </div>
 }

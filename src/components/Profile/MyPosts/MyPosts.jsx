@@ -7,7 +7,7 @@ const MyPosts = (props) => {
     let postElem = (props.posts).map(el=><Post message={el.message} likes={'likes: ' + el.likes} dislikes={'dislikes:' + el.dislikes}/>)
     return (
         <div>
-            <NewPost addPost={props.addPost} newPostText={props.newPostText} updateText={props.updateText}/>
+            <NewPost  newPostText={props.newPostText}  dispatch={props.dispatch}/>
             <div className={style.posted}>
                 {postElem}
             </div>
