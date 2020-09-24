@@ -1,15 +1,16 @@
 import React from "react";
-import style from './Dialog.module.css'
+import style from './Dialogs.module.css'
 import DialogLink from "./DialogLink/DialogLink";
 import Message from './Message/Message';
 import AddMessage from "./Message/AddMessage/AddMessage";
 
-const Dialog = (props) => {
+const Dialogs = (props) => {
+
     let renderMessages = () => {
-        let messagesElems = props.data.dialogs[0].messages.map(elem => <Message message={elem.text} date={elem.date}/>);
+        let messagesElems = props.dialogs[0].messages.map(elem => <Message message={elem.text} date={elem.date}/>);
         return messagesElems
     }
-    let dialogsElems = props.data.dialogs.map((el) => <DialogLink name={el.name} idName={el.id} dialogs={el.messages}/>);
+    let dialogsElems = props.dialogs.map((el) => <DialogLink name={el.name} idName={el.id} dialogs={el.messages}/>);
     return (<div className={style.dialogsWrapper}>
         <div className={style.dialogs}>
             {dialogsElems}
@@ -17,8 +18,9 @@ const Dialog = (props) => {
         <div className={style.dialogs}>
             {renderMessages(0)}
         </div>
-        <AddMessage dispatch={props.dispatch}/>
+        <AddMessage addNewMsg={props.addNewMsg} updateMsg={props.updateMsg}/>
     </div>)
 }
 
-export default Dialog;
+
+export default Dialogs;

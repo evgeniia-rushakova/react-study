@@ -1,7 +1,8 @@
-const addpost = 'ADD-POST';
-const updatetext = 'UPDATE-TEXT';
-const addMessage = 'ADD-MSG';
-const updateMsgText='UPDATE-MSG-TEXT';
+import profileReducer, {addpost, updatetext} from "./profile-reducer";
+import dialogsReducer, {addMessage, updateMsgText} from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
+
 let store = {
     _state: {
         profile: {
@@ -20,7 +21,7 @@ let store = {
                         {id: 4, text: "dolorBarny", date: '12.03.25'},
                         {id: 5, text: "sitBarny", date: '12.03.25'},
                         {id: 6, text: "amesBarny", date: '12.03.25'},
-                    ]},
+                    ], newMessage: ''},
                 {name: "Ted", id: 2, messages: [
                         {id: 1, text: "helloTed", date: '12.03.25'},
                         {id: 2, text: "loremTed", date: '12.03.25'},
@@ -28,7 +29,7 @@ let store = {
                         {id: 4, text: "dolorTed", date: '12.03.25'},
                         {id: 5, text: "sitTed", date: '12.03.25'},
                         {id: 6, text: "amesTed", date: '12.03.25'},
-                    ]},
+                    ], newMessage: ''},
                 {name: "Lilly", id: 3, messages: [
                         {id: 1, text: "Lillyhello", date: '12.03.25'},
                         {id: 2, text: "Lillylorem", date: '12.03.25'},
@@ -36,7 +37,7 @@ let store = {
                         {id: 4, text: "Lillydolor", date: '12.03.25'},
                         {id: 5, text: "Lillysit", date: '12.03.25'},
                         {id: 6, text: "Lillyames", date: '12.03.25'},
-                    ]},
+                    ], newMessage: ''},
                 {name: "Marshall", id: 4, messages: [
                         {id: 1, text: "Marshallhello", date: '12.03.25'},
                         {id: 2, text: "Marshalllorem", date: '12.03.25'},
@@ -44,7 +45,7 @@ let store = {
                         {id: 4, text: "Marshalldolor", date: '12.03.25'},
                         {id: 5, text: "Marshallsit", date: '12.03.25'},
                         {id: 6, text: "Marshallames", date: '12.03.25'},
-                    ]},
+                    ], newMessage: ''},
                 {name: "Robin", id: 5, messages: [
                         {id: 1, text: "Robinhello", date: '12.03.25'},
                         {id: 2, text: "Robinlorem", date: '12.03.25'},
@@ -52,10 +53,10 @@ let store = {
                         {id: 4, text: "Robindolor", date: '12.03.25'},
                         {id: 5, text: "Robinsit", date: '12.03.25'},
                         {id: 6, text: "Robinames", date: '12.03.25'},
-                    ]}
+                    ], newMessage: ''}
             ],
-            newMessage: ''
-        }
+        },
+        sidebar : {}
     },
     getState() {
         return this._state;
@@ -66,39 +67,25 @@ let store = {
         this._renderTree = observer
     },
     dispatch(action) {
+        profileReducer(this._state.profile, action);
+        dialogsReducer(this._state.messages.dialogs[0], action);
+        sidebarReducer(this._state, action);
         switch (action.type) {
             case addpost: {
-                let newPost = {
-                    message: this._state.profile.newPostText,
-                    likes: 0,
-                    dislikes: 0
-                }
-                this._state.profile.posts.push(newPost);
-                this._state.profile.newPostText = '';
                 this._renderTree();
                 break;
             }
             case updatetext: {
-                this._state.profile.newPostText = action.msg;
                 this.subscribe(this._renderTree);
                 break;
             }
             case updateMsgText:
             {
-                this._state.messages.newMessage = action.msg;
                 this.subscribe(this._renderTree);
                 break;
             }
             case addMessage:
             {
-                let newMsg = {
-                    text: this._state.messages.newMessage,
-                    date: '00:00:00',
-                   /* id: action.id*/
-                    id:0
-                }
-                this._state.messages.dialogs[0].messages.push(newMsg);
-                this._state.messages.newMessage = '';
                 this._renderTree();
                 break;
             }
@@ -106,25 +93,6 @@ let store = {
     }
 }
 
-export let postActionCreator = () =>
-    ({
-        type: addpost
-    })
-
-export let newPostActionCreator = (text) => ({
-    type: updatetext,
-    msg: text
-})
-
-export let msgActionCreator = () =>
-    ({
-        type: addMessage
-    })
-
-export let newMsgActionCreator = (text) => ({
-    type: updateMsgText,
-    msg: text
-})
 
 window.store = store;
 
